@@ -18,7 +18,6 @@ public class PredictableDie {
 	}
 
 	public int getLastRoll() {
-		// TODO Auto-generated method stub
 		return this.lastRoll;
 	}
 
