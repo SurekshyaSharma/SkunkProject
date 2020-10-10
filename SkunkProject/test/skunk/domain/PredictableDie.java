@@ -2,8 +2,23 @@ package skunk.domain;
 
 public class PredictableDie {
 
+	private int[] theRolls;
+	private int nextInt;
+	private int lastRoll;
+
 	public PredictableDie(int[] is) {
-		// TODO Auto-generated constructor stub
+		this.theRolls =is;
+		this.nextInt = 0;
+	}
+
+	public void roll() {
+		this.lastRoll =this.theRolls[this.nextInt];
+		
+	}
+
+	public int getLastRoll() {
+		// TODO Auto-generated method stub
+		return this.lastRoll;
 	}
 
 }
