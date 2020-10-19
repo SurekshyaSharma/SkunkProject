@@ -91,4 +91,9 @@ public class Dice
 		StdOut.println("Actual count: " + doubleSkunkCount);
 		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
 	}
+
+	public Object double_skunk() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
