@@ -26,4 +26,13 @@ public class Die
 		return "Die: " + this.getLastRoll();
 	}
 
+	public boolean skunk(int i) {
+		// TODO Auto-generated method stub
+		lastRoll=i=1;
+		if(lastRoll==1) {
+			return true;
+		}
+		return false;
+	}
+
 }
