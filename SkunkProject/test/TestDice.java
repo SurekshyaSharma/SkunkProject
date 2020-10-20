@@ -49,7 +49,6 @@ import org.junit.Test;
 		public void not_deuce()
 		{
 			Dice dice= new Dice();
-
 			assertEquals(false,dice.deuce(4));
 		}
 
