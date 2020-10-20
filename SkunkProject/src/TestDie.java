@@ -6,7 +6,7 @@ class TestDie {
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		fail("Not implemented");
 	}
 
 }

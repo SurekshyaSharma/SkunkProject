@@ -113,22 +113,20 @@ public class Dice
 
 	public boolean skunk(int is) {
 		lastRoll =is;
-	if ( lastRoll == 4 ||  lastRoll == 5   ||  lastRoll == 6   ||  lastRoll == 7   )
-	{
-		return true;
-	}
-	return false;
+		if ( lastRoll == 4 ||  lastRoll == 5   ||  lastRoll == 6   ||  lastRoll == 7   )
+		{
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean deuce(int is) {
 		lastRoll =is;
-	if (lastRoll == 3  )
-	{
-		return true;
-	}
-	return false;
-	}
-	
-	
+		if (lastRoll == 3  )
+		{
+			return true;
+		}
+		return false;
+		}
 	
 	}

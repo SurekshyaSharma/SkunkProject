@@ -8,7 +8,7 @@ public class SkunkApp {
 		dice.roll();
 		roll=dice.getLastRoll();
 		StdOut.println("Welcome to Skunk APP");
-		StdOut.println("This is roll value: "+roll);
+		StdOut.println("This is roll value: " + roll);
 		
 	}
 	
