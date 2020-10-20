@@ -10,17 +10,48 @@ import skunk.domain.PredictableDie;
 	{
 
 		@Test
-		public void check_skunk()
+		public void check_double_skunk()
 		{
 			Dice dice= new Dice();
-//			PredictableDie die = new PredictableDie(new int[] {1,2,3,4});
 			dice.roll();
-			int roll = dice.double_skunk( 2);
-			dice.roll();
-			assertEquals(2,dice.double_skunk(2));
+			boolean roll = dice.double_skunk(2);
+			assertEquals(true,roll);
 		}
-			
-		
+		@Test
+		public void check_not_double_skunk()
+		{
+			Dice dice= new Dice();
+//			dice.roll();
+			assertEquals(false,dice.double_skunk(1));
+		}
+		@Test
+		public void skunk()
+		{
+			Dice dice= new Dice();
+//			dice.roll();
+			assertEquals(true,dice.skunk(4));
+		}
+		@Test
+		public void not_skunk()
+		{
+			Dice dice= new Dice();
+//			dice.roll();
+			assertEquals(false,dice.skunk(2));
+		}
+		@Test
+		public void deuce()
+		{
+			Dice dice= new Dice();
+//			dice.roll();
+			assertEquals(true,dice.deuce(3));
+		}
+		@Test
+		public void not_deuce()
+		{
+			Dice dice= new Dice();
+//			dice.roll();
+			assertEquals(false,dice.deuce(4));
+		}
 
 	}
 

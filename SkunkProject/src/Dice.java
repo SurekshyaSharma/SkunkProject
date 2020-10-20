@@ -93,12 +93,42 @@ public class Dice
 		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
 	}
 
-	public int double_skunk(int is) {
+	public boolean double_skunk(int is) 
+	{
 		// TODO Auto-generated method stub
-		return is ;
+		
+		if (lastRoll == is) 
+		{
+			
+			return true;
+		}
+//		if (lastRoll == is) 
+//		{
+//					
+//			return true;
+//		}
+		
+		return false;
 	}
 
+	public boolean skunk(int is) {
+		lastRoll =is;
+	if ( lastRoll == 4 ||  lastRoll == 5   ||  lastRoll == 6   ||  lastRoll == 7   )
+	{
+		return true;
+	}
+	return false;
+	}
 	
-
+	public boolean deuce(int is) {
+		lastRoll =is;
+	if (lastRoll == 3  )
+	{
+		return true;
+	}
+	return false;
+	}
 	
-}
+	
+	
+	}
