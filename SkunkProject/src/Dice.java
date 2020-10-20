@@ -1,4 +1,5 @@
 import edu.princeton.cs.introcs.StdOut;
+import skunk.domain.PredictableDie;
 
 /**
  * Dice represents a single pair of rollable Die objects, randomly generating
@@ -92,8 +93,12 @@ public class Dice
 		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
 	}
 
-	public Object double_skunk() {
+	public int double_skunk(int is) {
 		// TODO Auto-generated method stub
-		return null;
+		return is ;
 	}
+
+	
+
+	
 }
