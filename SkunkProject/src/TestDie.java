@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Test;
 class TestDie {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void skunk() {
+		Die die= new Die();
+		assertEquals(true,die.skunk(1));
 	}
 
 }
