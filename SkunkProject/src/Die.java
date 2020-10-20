@@ -27,12 +27,23 @@ public class Die
 	}
 
 	public boolean skunk(int i) {
-		// TODO Auto-generated method stub
-		lastRoll=i=1;
+	
+		lastRoll=i;
 		if(lastRoll==1) {
 			return true;
 		}
 		return false;
+	}
+
+	public boolean deuce(int i) {
+
+		lastRoll=i;
+		
+		if(lastRoll == 3 && lastRoll == i){
+			return true; 
+		}
+		return false;
+		
 	}
 
 }
