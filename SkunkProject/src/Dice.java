@@ -96,8 +96,8 @@ public class Dice
 	public boolean double_skunk(int is) 
 	{
 		// TODO Auto-generated method stub
-		
-		if (lastRoll == is) 
+		lastRoll = is;
+		if (lastRoll == is && lastRoll ==2) 
 		{
 			
 			return true;

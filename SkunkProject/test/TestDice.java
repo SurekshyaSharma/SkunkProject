@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
-import skunk.domain.PredictableDie;
+
 
 	public class TestDice
 	{
@@ -13,9 +13,9 @@ import skunk.domain.PredictableDie;
 		public void check_double_skunk()
 		{
 			Dice dice= new Dice();
-			dice.roll();
-			boolean roll = dice.double_skunk(2);
-			assertEquals(true,roll);
+//			dice.roll();
+		
+			assertEquals(true,dice.double_skunk(2));
 		}
 		@Test
 		public void check_not_double_skunk()
