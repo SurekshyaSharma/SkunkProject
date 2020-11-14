@@ -111,7 +111,7 @@ public class Dice
 		if ( this.getLastRoll()==2 )
 		{
 			StdOut.println("Double Skunk.");
-			doubleSkunkCount ++;
+//			doubleSkunkCount ++;
 			return true;
 		}
 		return false;
@@ -125,8 +125,8 @@ public class Dice
 		{ 	 
 			if (this.die2Roll !=1 && this.die2Roll !=2)
 			{
-				StdOut.println("Skunk.");
-				skunkCount++;
+				StdOut.println("Skunk. ");
+//				skunkCount++;
 				return true;
 			}
 		
@@ -136,7 +136,7 @@ public class Dice
 			if (this.die1Roll!=1 && this.die1Roll !=2)
 			{
 				StdOut.println("Skunk.");
-				skunkCount++;
+//				skunkCount++;
 				return true;
 			}
 		}
@@ -149,8 +149,8 @@ public class Dice
 		{ 	 
 			if (this.die2Roll ==2 )
 			{
-				StdOut.println("Deuce.");
-				deuceCount++;
+				StdOut.println("Deuce. ");
+//				deuceCount++;
 				return true;
 			}
 			
@@ -159,8 +159,8 @@ public class Dice
 		{
 			if (this.die2Roll==1 )
 			{
-				StdOut.println("Dece.");
-				deuceCount++;
+				StdOut.println("Deuce.");
+//				deuceCount++;
 				return true;
 			}
 		}
