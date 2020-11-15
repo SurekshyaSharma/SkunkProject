@@ -6,77 +6,96 @@ import java.util.ArrayList;
 public class Turn 
 	{
 		Dice dice = new Dice();
+
+//		player.playerInfo();
 		
-		public static final int NUM_TRIALS = 15;
-		int doubleSkunkCount = 0;
-	
-	
-	public boolean game()
-	{
-		int doubleSkunkCount = 0;
-		int skunkCount = 0;
-		int deuceCount = 0;
-		int rollCount = 0;
-		int total = 0;
-		int remainingTotal =0;
-		int Chips = 50;
+		public static final int NUM_TRIALS = 20;
+		
+		String uname;
+		int doubleSkunkCount = 0, skunkCount = 0, deuceCount = 0, total = 0, dTotal = 0 ,Chips = 50;
 		int remainingChip = 0;
-		int skunk = 0;
-		int dskunk = 0 , deuce = 0;
-		int deu = 0;
-		int dSku = 0;
-		int sku = 0;
+		int skunk = 0, dskunk = 0 , deuce = 0;
+		int deu = 0, dSku = 0,  rollCount = 0, rollCount1= 0;
+		int winner = 0;
+		
+	public Turn(Player player1) {
+		this.uname = player1.getuserName();
+	}
+		
+	public boolean game()
+	{	
 		
 		for (int i = 0; i < NUM_TRIALS; i++)
 		{
 			dice.roll();
 			StdOut.println(dice);
 			rollCount = dice.getLastRoll();
+			int die1c = dice.die1Roll;
+			int die2c = dice.die2Roll;
 
 			total += rollCount;
-		//	if (total==100||total>100) {
-//				StdOut.println("You score 100 or over 100.");
-//				Scanner playerName = new Scanner(System.in);  // Create a Scanner object
-//				StdOut.println("Do you still want to play?:");
-//			    String playMore = playerName.nextLine();  // Read user input
-//			    total+
-//				return ;
-			//}
-			if (dice.check_doubleSkunk() == true) 
-			{ //penalties lost of die and 2 chips
+			//---------------------------Checking SKUNK----------s--------------------------------------------------
+
+			if (dice.check_doubleSkunk(rollCount) ==2 )
+			{ 
+				//penalties lost of die and 4chips and lost all points
 				doubleSkunkCount ++;
-				
-				StdOut.println(remainingChip);
 				dskunk++;
 				dSku =	dskunk*4;
-				total = 0;
-				StdOut.println("ToTal because of double skunk is 0.");
+				StdOut.println("Double Skunk.");
+				StdOut.println(" ");
+				StdOut.println("Actual doubleSkunkCount: " + doubleSkunkCount);
+				remainingChip = Chips - dSku;
+				StdOut.println("Total is:" +" " + dTotal);
+				StdOut.println("You have"+ " "+ remainingChip + " chips left.");
+				System.exit(i);
 				
 			}
-//				
-			if (dice.check_Skunk() == true)
+			
+			//---------------------------Checking DoUBLE SKUNK-----------------------------------------------------
+			if (dice.check_Skunk(die1c, die2c ) == true)
 			{	
-			//penalties lost of die and 4 chips and lost all points
+				
+			//penalties lost of die and 1chips 
 				skunkCount++;
 				skunk++;
+				StdOut.println(" ");
+				StdOut.println("Skunk.");
+				StdOut.println("Actual SkunkCount: " + skunkCount);
+				remainingChip = Chips - skunk;
+				StdOut.println("Total is:" +" " + total);
+				StdOut.println(" ");
+				StdOut.println(this.uname + " you have"+ " " + remainingChip + " chips left.");
+				System.exit(i);
 				
 			}
-			if (dice.check_Deuce() == true)
+			//---------------------------Checking DoUBLE DEUCE------------------------------------------------
+			if (dice.check_deuce(rollCount) == true)
 			{
-//			//penalties lost of die and 2 chips
+				//penalties lost of die and 2 chips
 				deuceCount++;
 				deuce++;
 				deu = deuce*2;
-
+				StdOut.println(" ");
+				StdOut.println("Deuce.");
+				StdOut.println("Actual DeuceCount: " + deuceCount);
+				remainingChip = Chips - deu ;
+				StdOut.println(this.uname + " you have"+ " "+ remainingChip +" chips left.");
+				System.exit(i);
 			}
-			remainingChip = Chips - (dSku + deu + skunk);
+			
+			if (total >= 100)
+			{
+				StdOut.println("Total was:" +" " + total);
+				dice.roll();
+				StdOut.println(dice);
+				rollCount1 = dice.getLastRoll();
+				winner = total + rollCount1;
+				StdOut.println("Total after one extra roll is :" +" " + winner);
+				System.exit(i);
+			}
 			
 		 }
-		StdOut.println("Actual doubleSkunkCount: " + doubleSkunkCount);
-		StdOut.println("Actual SkunkCount: " + skunkCount);
-		StdOut.println("Actual DeuceCount: " + deuceCount);
-		StdOut.println("Total was: "+ total);
-		StdOut.println("You have"+ " "+ remainingChip +" reduced chip.");
 		
 		return false;
 	

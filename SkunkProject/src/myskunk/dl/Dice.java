@@ -9,7 +9,7 @@ import skunk.domain.PredictableDie;
  * 
  * This is a Javadoc comment: add more to your finished class below
  * 
- * @author eric
+ * @author Surekshya
  *
  */
 
@@ -65,7 +65,6 @@ public class Dice
 		die2.roll();
 		this.die1Roll = die1.getLastRoll();
 		this.die2Roll = die2.getLastRoll();
-		
 		this.lastRoll = this.die1Roll  + this.die2Roll;
 		
 	}
@@ -105,66 +104,65 @@ public class Dice
 //		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
 //	}
 
-	public boolean check_doubleSkunk()
+	public int check_doubleSkunk(int double_Skunk )
 	{
+		
 //		//checking double skunk-----------------------------------------------------------------
-		if ( this.getLastRoll()==2 )
+	
+		if ( this.getLastRoll() == 2 || this.getLastRoll() == double_Skunk && double_Skunk ==2)
 		{
-			StdOut.println("Double Skunk.");
-//			doubleSkunkCount ++;
-			return true;
+			double_Skunk = this.getLastRoll();
 		}
-		return false;
+		return double_Skunk ;
+		
 			
 	}
 		
-	public boolean check_Skunk()
+	public boolean check_Skunk(int die1c, int die2c )
 	{
+		 die1c = this.die1Roll;
+		 die2c = this.die2Roll;
+		
 	//checking skunk------------------------------------------------------------------------
-		if (this.die1Roll ==1) 
+		if (this.die1Roll ==1  )
 		{ 	 
 			if (this.die2Roll !=1 && this.die2Roll !=2)
 			{
-				StdOut.println("Skunk. ");
-//				skunkCount++;
 				return true;
 			}
 		
 		}
-		if (this.die2Roll ==1) 
+		if (this.die2Roll ==1  )
 		{
-			if (this.die1Roll!=1 && this.die1Roll !=2)
+			if (this.die1Roll!=1 && this.die1Roll !=2  )
 			{
-				StdOut.println("Skunk.");
-//				skunkCount++;
 				return true;
 			}
 		}
+
 		return false;
 	}
-	public boolean check_Deuce()
+	public boolean check_deuce( int deuceCheck)
 	{
 		//checking deuce-------------------------------------------------------------------------
-		if (this.die1Roll ==1)
+		if (this.die1Roll ==1 || deuceCheck == 3)
 		{ 	 
-			if (this.die2Roll ==2 )
+			if (this.die2Roll ==2 || deuceCheck == 3)
 			{
-				StdOut.println("Deuce. ");
-//				deuceCount++;
 				return true;
 			}
 			
 		}
-		if (this.die1Roll ==2) 
+		if (this.die1Roll ==2 || deuceCheck == 3 ) 
 		{
-			if (this.die2Roll==1 )
+			if (this.die2Roll==1 || deuceCheck == 3)
 			{
-				StdOut.println("Deuce.");
-//				deuceCount++;
 				return true;
 			}
 		}
 		return false;
 		
 	}
+
+
 	}

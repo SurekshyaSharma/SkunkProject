@@ -7,48 +7,44 @@ import org.junit.Test;
 
 
 //
-//	public class TestDice
-//	{
-//
-//		@Test
-//		public void check_double_skunk()
-//		{
-//			Dice dice= new Dice();
-//		
-//			assertEquals(true,dice.check_doubleSkunk();
-//		}
-//		@Test
-//		public void not_deuce()
-//		{
-//			Dice dice= new Dice();
-//			assertEquals(false,dice.check_doubleSkunk();
-//		}
-//
-//		@Test
-//		public void check_not_double_skunk()
-//		{
-//			Dice dice= new Dice();
-//			assertEquals(false,dice.check_Skunk();
-//		}
-//		@Test
-//		public void skunk()
-//		{
-//			Dice dice= new Dice();
-//			assertEquals(true,dice.check_Skunk();
-//		}
-//		@Test
-//		public void not_skunk()
-//		{
-//			Dice dice= new Dice();
-//			assertEquals(false,dice.check_Deuce();
-//		}
-//		@Test
-//		public void deuce()
-//		{
-//			Dice dice= new Dice();
-//			assertEquals(true,dice.check_Deuce();
-//		}
-//		
-//
-//	}
-//
+	public class TestDice
+	{
+
+		Dice dice= new Dice();
+
+		@Test
+		public void check_double_skunk()
+		{
+			
+			assertEquals(2,dice.check_doubleSkunk(2));
+		}
+	
+		@Test
+		public void check_skunk()
+		{  
+	
+			assertEquals(true,dice.check_Skunk(1, 4));
+		}
+		
+		@Test
+		public void check_not_skunk()
+		{  
+			
+			assertEquals(false,dice.check_Skunk(1, 2));
+		}
+		
+		@Test
+		public void check_deuce()
+		{  
+		
+			assertEquals(true,dice.check_deuce(3));
+		}
+
+		@Test
+		public void check_not_deuce()
+		{  
+			
+			assertEquals(false,dice.check_deuce(2));
+		}
+	}
+

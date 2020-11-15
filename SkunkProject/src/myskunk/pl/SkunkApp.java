@@ -11,17 +11,15 @@ public class SkunkApp {
 	public static void main(String[] args)
 	{
 		
-		Dice dice = new Dice();
-		Turn turn = new Turn();
-		Player player = new Player();
+		Player skunkplayer = new Player();
+		Turn turn = new Turn(skunkplayer);
+ 
 		
-//		welcome user--------------------------------------------------------------------------------------------------
-		StdOut.println("Welcome to Skunk Game.");
-//		turn.playerInfo();
-//		Check --------------------------------------------------------------------------------------------------------
+		StdOut.println(" ");
 		turn.game();
-//		Continue or Exit----------------------------------------------------------------------------------------------
-		
+	
+	
+
 		
 	}
 
