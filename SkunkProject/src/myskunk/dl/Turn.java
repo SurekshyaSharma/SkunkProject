@@ -47,7 +47,7 @@ public class Turn
 				StdOut.println("Actual doubleSkunkCount: " + doubleSkunkCount);
 				remainingChip = Chips - dSku;
 				StdOut.println("Total is:" +" " + dTotal);
-				StdOut.println("You have"+ " "+ remainingChip + " chips left.");
+				StdOut.println(this.uname + " you have"+ " "+ remainingChip + " chips left.");
 				System.exit(i);
 				
 			}

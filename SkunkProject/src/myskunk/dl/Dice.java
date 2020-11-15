@@ -115,7 +115,6 @@ public class Dice
 		}
 		return double_Skunk ;
 		
-			
 	}
 		
 	public boolean check_Skunk(int die1c, int die2c )
