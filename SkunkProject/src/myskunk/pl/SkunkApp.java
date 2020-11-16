@@ -13,12 +13,7 @@ public class SkunkApp {
 		
 		Player skunkplayer = new Player();
 		Turn turn = new Turn(skunkplayer);
- 
-		
-		StdOut.println(" ");
 		turn.game();
-	
-	
 
 		
 	}

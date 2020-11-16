@@ -1,25 +1,32 @@
 package myskunk.dl;
 import edu.princeton.cs.introcs.StdOut;
-//import java.util.Scanner;
-import java.util.ArrayList;
+
 
 public class Turn 
 	{
 		Dice dice = new Dice();
+		
 
 //		player.playerInfo();
 		
 		public static final int NUM_TRIALS = 20;
 		
 		String uname;
+		String uname1;
+		String uname2;
 		int doubleSkunkCount = 0, skunkCount = 0, deuceCount = 0, total = 0, dTotal = 0 ,Chips = 50;
 		int remainingChip = 0;
 		int skunk = 0, dskunk = 0 , deuce = 0;
 		int deu = 0, dSku = 0,  rollCount = 0, rollCount1= 0;
 		int winner = 0;
+
+		String userNumber;
 		
-	public Turn(Player player1) {
-		this.uname = player1.getuserName();
+	public Turn(Player player) {
+		this.uname = player.getuserName();
+		this.uname1 = player.getuserName1();
+		this.uname2 = player.getuserName2();
+		this.userNumber = player.numberUser();
 	}
 		
 	public boolean game()
@@ -30,13 +37,11 @@ public class Turn
 			dice.roll();
 			StdOut.println(dice);
 			rollCount = dice.getLastRoll();
-			int die1c = dice.die1Roll;
-			int die2c = dice.die2Roll;
 
 			total += rollCount;
 			//---------------------------Checking SKUNK----------s--------------------------------------------------
 
-			if (dice.check_doubleSkunk(rollCount) ==2 )
+			if (dice.check_doubleSkunk(rollCount) ==true)
 			{ 
 				//penalties lost of die and 4chips and lost all points
 				doubleSkunkCount ++;
@@ -49,11 +54,12 @@ public class Turn
 				StdOut.println("Total is:" +" " + dTotal);
 				StdOut.println(this.uname + " you have"+ " "+ remainingChip + " chips left.");
 				System.exit(i);
+				return true;
 				
 			}
 			
 			//---------------------------Checking DoUBLE SKUNK-----------------------------------------------------
-			if (dice.check_Skunk(die1c, die2c ) == true)
+			if (dice.check_Skunk(dice.getdie1Roll(),dice.getdie2Roll()) == true)
 			{	
 				
 			//penalties lost of die and 1chips 

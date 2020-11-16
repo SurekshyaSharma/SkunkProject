@@ -9,28 +9,30 @@ import org.junit.Test;
 //
 	public class TestDice
 	{
-
-		Dice dice= new Dice();
+		Dice dice = new Dice();
 
 		@Test
 		public void check_double_skunk()
 		{
 			
-			assertEquals(2,dice.check_doubleSkunk(2));
+			assertEquals(true,dice.check_doubleSkunk(2));
 		}
 	
 		@Test
 		public void check_skunk()
 		{  
 	
-			assertEquals(true,dice.check_Skunk(1, 4));
+			assertEquals(true,dice.check_Skunk(1,3));
+			assertEquals(true,dice.check_Skunk(3,1));
 		}
+		
 		
 		@Test
 		public void check_not_skunk()
 		{  
 			
-			assertEquals(false,dice.check_Skunk(1, 2));
+			assertEquals(false,dice.check_Skunk(1,2));
+
 		}
 		
 		@Test

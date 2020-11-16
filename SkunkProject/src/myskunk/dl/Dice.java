@@ -43,10 +43,10 @@ public class Dice
 
 
  // overloaded constructor
-	{
-		this.die1 = die1;
-		this.die2 = die2;
-	}
+//	{
+//		this.die1 = die1;
+//		this.die2 = die2;
+//	}
 
 	// Instance methods can also be declared anywhere in body of class
 	// One convention: after the constructors
@@ -69,6 +69,14 @@ public class Dice
 		
 	}
 
+	public int getdie1Roll() {
+		return this.die1Roll;
+	}
+	public int getdie2Roll() {
+		return this.die2Roll;
+	}
+	
+	
 	// the following method converts the internals of
 	// this Dice object, and returns a descriptive String:
 	//
@@ -104,36 +112,37 @@ public class Dice
 //		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
 //	}
 
-	public int check_doubleSkunk(int double_Skunk )
+	public boolean check_doubleSkunk(int dice_roll)
 	{
 		
 //		//checking double skunk-----------------------------------------------------------------
 	
-		if ( this.getLastRoll() == 2 || this.getLastRoll() == double_Skunk && double_Skunk ==2)
+		if ( dice_roll == 2)
 		{
-			double_Skunk = this.getLastRoll();
+			return true;
 		}
-		return double_Skunk ;
+		return false;
 		
 	}
 		
-	public boolean check_Skunk(int die1c, int die2c )
+	public boolean check_Skunk(int die1_Roll, int die2_Roll)
 	{
-		 die1c = this.die1Roll;
-		 die2c = this.die2Roll;
+		
+	
 		
 	//checking skunk------------------------------------------------------------------------
-		if (this.die1Roll ==1  )
+		
+		 if (die1_Roll==1 )
 		{ 	 
-			if (this.die2Roll !=1 && this.die2Roll !=2)
+			if (die2_Roll >2  )
 			{
 				return true;
 			}
 		
 		}
-		if (this.die2Roll ==1  )
+		if ( die2_Roll==1  )
 		{
-			if (this.die1Roll!=1 && this.die1Roll !=2  )
+			if (die1_Roll >2 )
 			{
 				return true;
 			}
@@ -141,25 +150,17 @@ public class Dice
 
 		return false;
 	}
-	public boolean check_deuce( int deuceCheck)
+	public boolean check_deuce( int last_Roll)
 	{
+		 
+		 
 		//checking deuce-------------------------------------------------------------------------
-		if (this.die1Roll ==1 || deuceCheck == 3)
-		{ 	 
-			if (this.die2Roll ==2 || deuceCheck == 3)
-			{
-				return true;
-			}
-			
+		if (last_Roll == 3) {
+			return true;
 		}
-		if (this.die1Roll ==2 || deuceCheck == 3 ) 
-		{
-			if (this.die2Roll==1 || deuceCheck == 3)
-			{
-				return true;
-			}
-		}
-		return false;
+		
+			return false;
+		
 		
 	}
 
