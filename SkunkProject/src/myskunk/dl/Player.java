@@ -11,9 +11,7 @@ public class Player {
 	String rules;
 	String user_input;
 	Scanner playerName;
-	
 	Dice dice = new Dice();
-//	Turn player_turn = new Turn();
 	
 	public Player() {
 //		player 1, default
@@ -21,19 +19,20 @@ public class Player {
 		Scanner playerName = new Scanner(System.in); 
 		StdOut.println("Enter names for the player: ");
 		this.userName = playerName.nextLine();
-////		multiple
+//		multiple
 //		Scanner playerName = new Scanner(System.in); 
-//		Scanner playerName1 = new Scanner(System.in); 
-//		Scanner playerName2 = new Scanner(System.in); 
-//		Scanner playerNumber = new Scanner(System.in); 
-//		Scanner rules_Input = new Scanner(System.in); 
-//		
+		Scanner playerName1 = new Scanner(System.in); 
+		Scanner playerName2 = new Scanner(System.in); 
+		Scanner playerNumber = new Scanner(System.in); 
+		Scanner rules_Input = new Scanner(System.in); 
+		
 //		StdOut.println("How many Player?");
 //		this.user_input = playerNumber.nextLine(); 
-//		StdOut.println("Enter names for the player: ");
-//
-//		
+		
+
+		
 //		if (user_input.equals("1") ){
+//			StdOut.println("Enter names for the player: ");
 //			this.userName = playerName.nextLine(); 
 //			
 //			StdOut.println("Do you want to see the Rules of Skunk?");
@@ -41,6 +40,7 @@ public class Player {
 //			
 //		}
 //		if (user_input.equals("2")) {
+//			StdOut.println("Enter names for the player: ");
 //			this.userName = playerName.nextLine(); 
 //			this.userName1 = playerName1.nextLine(); 
 //			StdOut.println("Do you want to see the Rules of Skunk?");
@@ -48,6 +48,7 @@ public class Player {
 //			
 //		}
 //		if (user_input.equals("3")) {
+//			StdOut.println("Enter names for the player: ");
 //			this.userName = playerName.nextLine(); 
 //			this.userName1 = playerName1.nextLine(); 
 //			this.userName2 = playerName2.nextLine();
@@ -63,7 +64,6 @@ public class Player {
 //			StdOut.println("TWO skunks void the ENTIRE accumulated score and draws a penalty of 4 chips placed in the KITTY, "+"\n"+ "and loss of dice. Player must again start to score from scratch.");
 //			StdOut.println(" ");	
 //		}
-//	
 		
 	}
 	
