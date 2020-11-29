@@ -80,7 +80,7 @@ import edu.princeton.cs.introcs.StdOut;
 				System.exit(i);
 			}
 			
-			if (total >= 100)
+			if (total <= 100)
 			{
 				StdOut.println("Total was:" +" " + total);
 				dice.roll();
