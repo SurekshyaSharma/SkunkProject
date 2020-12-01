@@ -9,12 +9,10 @@ class TestTurn {
 	Turn turn = new Turn();
 	Dice dice = new Dice();
 
-	  
 	@Test
 	void remainingChip_for_skunk() {
 		assertEquals(49,turn.get_remainingChip( 1,3 ));
 		assertEquals(49,turn.get_remainingChip( 3,1 ));
-		
 	}
 	
 	@Test

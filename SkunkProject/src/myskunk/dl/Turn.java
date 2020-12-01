@@ -39,7 +39,6 @@ import edu.princeton.cs.introcs.StdOut;
 			int die2_Roll = dice.getdie2Roll();
 			this.total += rollCount;
 
-
 			if (dice.check_doubleSkunk(die1_Roll, die2_Roll) == true)
 			{ 
 				//---------------------------Checking DoUBLE SKUNK-----------------------------------------------------

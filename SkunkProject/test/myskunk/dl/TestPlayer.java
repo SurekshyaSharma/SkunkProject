@@ -14,7 +14,6 @@ class TestPlayer {
 		assertEquals("first",gamer.winner_threePlayers( 60, 30, 40) );
 		assertEquals("second",gamer.winner_threePlayers( 20, 100, 40) );
 		
-
 }
 	@Test
 	void winner_for_Player_when_2Players() {
