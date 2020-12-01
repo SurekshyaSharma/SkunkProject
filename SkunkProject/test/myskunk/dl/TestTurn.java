@@ -32,3 +32,4 @@ class TestTurn {
 		assertEquals(50,turn.get_remainingChip( 4, 5));
 	}
 }
+

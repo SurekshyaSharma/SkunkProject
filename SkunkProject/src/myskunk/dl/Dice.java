@@ -13,6 +13,7 @@ import skunk.domain.PredictableDie;
  *
  */
 
+
 public class Dice
 {
 	// Instance fields (variables) may be declared anywhere in class body
