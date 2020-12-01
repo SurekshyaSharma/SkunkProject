@@ -5,25 +5,19 @@ import edu.princeton.cs.introcs.StdOut;
 	public class Turn 
 		{
 			Dice dice = new Dice();
-			int i =0;
-
-			
-		 	public static final int NUM_TRIALS = 20;
-			
-			String uname;
-			String uname1;
-			String uname2;
-			private int doubleSkunkCount = 0, skunkCount = 0, deuceCount = 0, total = 0, dTotal = 0 ,Chips = 50;
+		 	public static final int NUM_TRIALS = 17;
+			private String uname, uname1, uname2, userNumber;
+			private int dTotal = 0 ,Chips = 50;
+			private int skunk = 1, dskunk = 4 , deuce = 2 ;
+			private int rollCount = 0, rollCount1= 0;
+			private int total = 0;
 			private int remainingChip = 0;
-			private int skunk = 0, dskunk = 0 , deuce = 0;
-			private int deu = 0, dSku = 0,  rollCount = 0, rollCount1= 0;
-			private int winner = 0;
-	
-			String userNumber;
-			
+			int die1_Roll = 0;
+			int die2_Roll = 0;
+			 
 	public Turn(Player player) 
 	{
-		this.uname = player.getuserName();
+//		this.uname = player.getuserName();
 		
 	}
 	
@@ -33,7 +27,7 @@ import edu.princeton.cs.introcs.StdOut;
 	}
 	
 	
-	public boolean game()
+	public int game()
 	{	
 		
 		for (int i = 0; i < NUM_TRIALS; i++)
@@ -41,93 +35,74 @@ import edu.princeton.cs.introcs.StdOut;
 			dice.roll();
 			StdOut.println(dice);
 			rollCount = dice.getLastRoll();
-			total += rollCount;
-			
-			if (dice.check_doubleSkunk(rollCount) ==true)
+			int die1_Roll = dice.getdie1Roll();
+			int die2_Roll = dice.getdie2Roll();
+			this.total += rollCount;
+
+
+			if (dice.check_doubleSkunk(die1_Roll, die2_Roll) == true)
 			{ 
-				double_Skunk_total();
+				//---------------------------Checking DoUBLE SKUNK-----------------------------------------------------
 				StdOut.println("Double Skunk.");
+				this.total = 0;
+				StdOut.println("Total is:" +" " + this.total);
+				get_remainingChip(die1_Roll, die2_Roll );
+				StdOut.println("You have"+ " "+ this.remainingChip + " chips left.");
 				
-				StdOut.println("Total is:" +" " + dTotal);
-				StdOut.println(" ");
-				StdOut.println("Actual doubleSkunkCount: " + this.doubleSkunkCount);
-				StdOut.println(this.uname + " you have"+ " "+ this.remainingChip + " chips left.");
-				System.exit(i);
+				return this.total;
 			}
-			
-			if (dice.check_Skunk(dice.getdie1Roll(),dice.getdie2Roll()) == true)
+	
+			if (dice.check_Skunk(die1_Roll, die2_Roll) == true)
 			{	
-				skunk_total();
-				StdOut.println(" ");
 				StdOut.println("Skunk.");
-				StdOut.println("Actual SkunkCount: " + this.skunkCount);
-				StdOut.println("Total is:" +" " + total);
-				StdOut.println(" ");
-				StdOut.println(this.uname + " you have"+ " " + this.remainingChip + " chips left.");
+				StdOut.println("Total is:" +" " + this.total);
+				get_remainingChip(die1_Roll, die2_Roll );
+				StdOut.println("You have"+ " " + this.remainingChip + " chips left.");
+//				this.total = 0;
 				
-				System.exit(i );
-				
+				return this.total;
 			}
-			
-			if (dice.check_deuce(rollCount) == true)
+	
+			if (dice.check_deuce(die1_Roll, die2_Roll) == true)
 			{
-				deuce_total();
 				StdOut.println(" ");
 				StdOut.println("Deuce.");
-				StdOut.println("Actual DeuceCount: " + this.deuceCount);
-				StdOut.println("Total is:" +" " + total);
-				StdOut.println(this.uname + " you have"+ " "+ this.remainingChip +" chips left.");
-				System.exit(i);
-			}
-			
-			if (total >= 100)
-			{
-				StdOut.println("Total was:" +" " + total);
-				dice.roll();
-				StdOut.println(dice);
-				this.rollCount1 = dice.getLastRoll();
-				this.winner = this.total + this.rollCount1;
-				StdOut.println("Total after one extra roll is :" +" " + this.winner);
-				System.exit(i);
-			}
-			
-		 }
-		
-			return false;
-	
-		}
-	
-		public int double_Skunk_total()
-		{
-			//---------------------------Checking DoUBLE SKUNK-----------------------------------------------------
-			
-			this.doubleSkunkCount ++;
-			this.dskunk++;
-			this.dSku =	this.dskunk*4;
-			this.remainingChip = this.Chips - this.dSku;
-			return dTotal;
-		}
-
-		public boolean skunk_total() 
-		{
-			//---------------------------Checking SKUNK----------s--------------------------------------------------
+				StdOut.println("Total is:" +" " + this.total); 
+				get_remainingChip(die1_Roll, die2_Roll );
+				StdOut.println("You have"+ " "+ this.remainingChip +" chips left.");
+				StdOut.println(" ");
+//				this.total = 0;
 				
-			this.skunkCount++;
-			this.skunk++;
-			this.remainingChip = this.Chips - this.skunk;
-			return true;
-			
+				return this.total;
+			}
 			
 		}
+		return this.total;
 
-		public boolean deuce_total()
+	}
+	public int get_remainingChip(int die1_Roll, int die2_Roll )
+	{
+		if (dice.check_Skunk(die1_Roll, die2_Roll) == true) 
 		{
-			this.deuceCount++;
-			this.deuce++;
-			this.deu = deuce*2;
-			this.remainingChip = this.Chips - this.deu ;
-			return true;
+			this.remainingChip = this.Chips - 1;
 		}
-	
+		else if (dice.check_deuce(die1_Roll, die2_Roll) == true) 
+		{
+			this.remainingChip = this.Chips - 2 ;
+		}else if (dice.check_doubleSkunk(die1_Roll, die2_Roll) == true)
+		{
+			this.remainingChip = this.Chips - 4 ;
+		}else {
+			this.remainingChip = this.Chips - 0 ;
+		}
+		return remainingChip;
+		
+	}
+	public int get_total() {
+		return this.total;
+	}
+	public int get_remainingChips() {
+		return this.remainingChip;
+	}
 
 }

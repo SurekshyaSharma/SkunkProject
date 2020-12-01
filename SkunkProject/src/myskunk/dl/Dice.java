@@ -79,7 +79,7 @@ public class Dice
 	
 	// the following method converts the internals of
 	// this Dice object, and returns a descriptive String:
-	//
+	// 
 	// Roll of 7 => 4 + 3
 	//
 
@@ -88,19 +88,19 @@ public class Dice
 		return "Roll value: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
 	}
 
-	public boolean check_doubleSkunk(int dice_roll)
+	public boolean check_doubleSkunk(int die1_Roll, int die2_Roll)
 	{
 		
 //		//checking double skunk-----------------------------------------------------------------
 	
-		if ( dice_roll == 2)
+		if ( die1_Roll == 1 &&  die2_Roll == 1)
 		{
 			return true;
 		}
 		return false;
 		
 	}
-		
+	
 	public boolean check_Skunk(int die1_Roll, int die2_Roll)
 	{
 		
@@ -114,9 +114,9 @@ public class Dice
 			}
 		
 		}
-		if ( die2_Roll==1  )
+		if ( die2_Roll == 1  )
 		{
-			if (die1_Roll >2 )
+			if (die1_Roll > 2 )
 			{
 				return true;
 			}
@@ -124,15 +124,69 @@ public class Dice
 
 		return false;
 	}
-	public boolean check_deuce( int last_Roll)
+	public boolean check_Normal(int die1_Roll, int die2_Roll)
+	{
+		
+	//checking skunk------------------------------------------------------------------------
+		
+		 if (die1_Roll > 1 )
+		{ 	 
+			if (die2_Roll >1  )
+			{
+				return true;
+			}
+		
+		}
+		if ( die2_Roll > 1  )
+		{
+			if (die1_Roll >1 )
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+	public boolean check_deuce( int die1_Roll, int die2_Roll)
 	{
 		
 		//checking deuce-------------------------------------------------------------------------
-		if (last_Roll == 3) {
+		if (die1_Roll == 1 && die2_Roll == 2) {
+			return true;
+		}
+		if (die2_Roll == 1 && die1_Roll == 2) {
 			return true;
 		}
 		
 			return false;
+		
+	}
+	public String rollOutcome(int die1_Roll, int die2_Roll) {
+		if ( die1_Roll == 1)
+		{	if (die2_Roll == 1){
+				return "Double Skunk";
+			}else if(die2_Roll == 2) {
+				return "Deuce";
+			}else {
+				return "Skunk";
+			}
+		}
+		else if ( die1_Roll ==  2){
+			if (die2_Roll == 1){
+				return "Deuce";
+			}else {
+				return "Normal";
+			}
+		}
+		else {
+			if (die2_Roll == 1) {
+				return "Skunk";
+			}else {
+				return "Normal";
+			}
+		
+		
+		}
 		
 	}
 
